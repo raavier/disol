@@ -17,11 +17,12 @@ class _DisolState extends State<Disol> {
   static double _Resultado = 0.0;
 
   final myControllerLanca = TextEditingController();
+  final myControllerPeca = TextEditingController();
   @override
   void initState() {
     super.initState();
-    myControllerLanca.addListener(_printLatestValue);
-    myControllerLanca.addListener(_printLatestValue);
+    myControllerLanca.text = "";
+    myControllerPeca.text = "";
   }
 
   @override
@@ -29,13 +30,14 @@ class _DisolState extends State<Disol> {
     // Clean up the controller when the widget is removed from the widget tree.
     // This also removes the _printLatestValue listener.
     myControllerLanca.dispose();
+    myControllerPeca.dispose();
     super.dispose();
   }
 
-  _printLatestValue() {
+  /* _printLatestValue() {
     print("Second text field: ${myController.text}");
     print("comprimento lanca: " + _ComprLanca);
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +45,7 @@ class _DisolState extends State<Disol> {
         home: DefaultTabController(
       length: 2,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           bottom: TabBar(
             tabs: [
@@ -80,13 +83,20 @@ class _DisolState extends State<Disol> {
                                     _ComprLanca = value;
                                     print('Valor: ' + _ComprLanca);
 
-                                    _Resultado = double.parse(_ComprLanca) +
-                                        double.parse(_ComprPeca);
+                                    try {
+                                      _Resultado = _ComprLanca.isEmpty
+                                          ? 0.0
+                                          : double.parse(_ComprLanca) +
+                                              double.parse(_ComprPeca);
+                                    } catch (e) {
+                                      print(e);
+                                    }
+
                                     print('Valor Resultado ' +
                                         _Resultado.toString());
                                   })
                                 },
-                                controller: myController,
+                                controller: myControllerLanca,
                                 decoration: InputDecoration(
                                     labelText: 'Comprimento da Lança'),
                               ),
@@ -98,10 +108,12 @@ class _DisolState extends State<Disol> {
                                   setState(() {
                                     _ComprPeca = value;
                                     _Resultado = double.parse(_ComprLanca) +
-                                        double.parse(_ComprPeca);
+                                        (_ComprPeca.isEmpty
+                                            ? 0.0
+                                            : double.parse(_ComprPeca));
                                   });
                                 },
-                                controller: myController,
+                                controller: myControllerPeca,
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
                                     labelText: 'Comprimento da Peça'),
@@ -113,9 +125,10 @@ class _DisolState extends State<Disol> {
                     child: Padding(
                         padding: const EdgeInsets.all(20),
                         child: Expanded(
-                            child: Text(_ComprLanca.isEmpty
-                                ? 'vazio'
-                                : 'Valor: ' + _Resultado.toString())))),
+                            child: Text(
+                                (_ComprLanca.isEmpty || _ComprPeca.isEmpty)
+                                    ? 'vazio'
+                                    : 'Valor: ' + _Resultado.toString())))),
               ],
             ),
             Container(
