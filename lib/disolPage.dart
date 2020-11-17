@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_disol/guindaste.dart';
+import 'package:flutter_disol/infoPage.dart';
 import 'package:flutter_disol/ponteRolante.dart';
 
 class Disol extends StatefulWidget {
   @override
   _DisolState createState() => _DisolState();
+
+  static MaterialPageRoute get route => MaterialPageRoute(
+        builder: (context) => Disol(),
+      );
 }
 
 class _DisolState extends State<Disol> {
@@ -80,6 +85,7 @@ class _DisolState extends State<Disol> {
                   ],
                 ),
                 title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
                       padding: const EdgeInsets.fromLTRB(3, 0, 15, 0),
@@ -92,10 +98,16 @@ class _DisolState extends State<Disol> {
                       child: Text(
                         'Distância de Isolamento\n de Carga',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 12,
                         ),
                         textAlign: TextAlign.center,
                       ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.info),
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(InfoPage.route);
+                      },
                     )
                   ],
                 ),

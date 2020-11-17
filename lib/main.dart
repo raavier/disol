@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_disol/disolPage.dart';
+
+//import 'package:flutter_disol/disolPage.dart';
+import 'package:flutter_disol/splash.dart';
 
 void main() => runApp(
       MaterialApp(
@@ -10,7 +12,7 @@ void main() => runApp(
           accentColor: Colors.cyan[600],
 
           // Define the default font family.
-          fontFamily: 'Georgia',
+          fontFamily: 'Raleway',
 
           // Define the default TextTheme. Use this to specify the default
           // text styling for headlines, titles, bodies of text, and more.
@@ -21,6 +23,6 @@ void main() => runApp(
           ),
         ),
         debugShowCheckedModeBanner: false,
-        home: Disol(),
+        home: SplashScreen(),
       ),
     );

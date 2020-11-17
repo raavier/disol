@@ -47,8 +47,8 @@ android {
         applicationId "com.flavio.ravier.flutter_disol"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 5
-        versionName 'Versão 1.0.5'
+        versionCode 6
+        versionName 'Versão 1.0.6'
     }
 
        signingConfigs {
