@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_disol/disolPage.dart';
+import 'package:flutter_disol/disolPage/disolPage.dart';
 
 void main() => runApp(
       MaterialApp(

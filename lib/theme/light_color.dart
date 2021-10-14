@@ -17,11 +17,15 @@ class LightColor {
   static const Color purpleLight = Color(0xff9489f4);
   static const Color purpleExtraLight = Color(0xffb1a5f6);
 
-  static const Color grey = Color(0xffb8bfce);
+  static const Color grey = Color(0xFFE3E4E7);
+  static const Color greyDark = Color(0xFF8D8D8D);
+  static const Color greyText = Color(0xFFCCCCCC);
 
   static const Color iconColor = Color(0xffcbd0db);
   static const Color green = Color(0xff4cd1bc);
   static const Color lightGreen = Color(0xff5ed6c3);
+  static const Color greenVale = Color(0xff007e7a);
+  static const Color greenLightVale = Color(0xff66B2AF);
 
   static const Color black = Color(0xff20262C);
   static const Color lightblack = Color(0xff5F5F60);

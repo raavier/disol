@@ -1,56 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_disol/guindaste.dart';
-import 'package:flutter_disol/infoPage.dart';
-import 'package:flutter_disol/ponteRolante.dart';
+import 'package:flutter_disol/disolPage/guindaste.dart';
+import 'package:flutter_disol/IcamentoPage/Icamento.dart';
+import 'package:flutter_disol/disolPage/infoPage/infoPage.dart';
+import 'package:flutter_disol/disolPage/ponteRolante.dart';
 
-class Disol extends StatefulWidget {
+class IcamentoPage extends StatefulWidget {
   @override
-  _DisolState createState() => _DisolState();
+  _IcamentoState createState() => _IcamentoState();
 
   static MaterialPageRoute get route => MaterialPageRoute(
-        builder: (context) => Disol(),
+        builder: (context) => IcamentoPage(),
       );
 }
 
-class _DisolState extends State<Disol> {
-  final formKey = GlobalKey<FormState>();
-  final formKey2 = GlobalKey<FormState>();
-  static String _ComprLanca = "";
-  static String _ComprPeca = "";
-  static double _ResultadoGuindaste = 0.0;
-  static String _AlturaCarga = "";
-  static String _RaioPeca = "";
-  static double _ResultadoPonte = 0.0;
-
-  final myControllerLanca = TextEditingController();
-  final myControllerPeca = TextEditingController();
-  final myControllerAltura = TextEditingController();
-  final myControllerRaio = TextEditingController();
-  @override
-  void initState() {
-    super.initState();
-    myControllerLanca.text = "";
-    myControllerPeca.text = "";
-    myControllerAltura.text = "";
-    myControllerRaio.text = "";
-  }
-
-  @override
-  void dispose() {
-    // Clean up the controller when the widget is removed from the widget tree.
-    // This also removes the _printLatestValue listener.
-    myControllerLanca.dispose();
-    myControllerPeca.dispose();
-    myControllerAltura.dispose();
-    myControllerRaio.dispose();
-    super.dispose();
-  }
-
-  /* _printLatestValue() {
-    print("Second text field: ${myController.text}");
-    print("comprimento lanca: " + _ComprLanca);
-  } */
-
+class _IcamentoState extends State<IcamentoPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -72,16 +35,13 @@ class _DisolState extends State<Disol> {
           ),
         ),
         home: DefaultTabController(
-            length: 2,
+            length: 1,
             child: Scaffold(
               resizeToAvoidBottomInset: false,
               appBar: AppBar(
                 bottom: TabBar(
                   tabs: [
-                    Tab(text: 'Guindaste'),
-                    Tab(
-                      text: 'Ponte Rolante',
-                    )
+                    Tab(text: 'Içamento Básico'),
                   ],
                 ),
                 title: Row(
@@ -114,8 +74,7 @@ class _DisolState extends State<Disol> {
               ),
               body: SafeArea(
                 child: TabBarView(children: [
-                  Guindaste(),
-                  PonteRolante(),
+                  Icamento(),
                 ]),
               ),
             )));
