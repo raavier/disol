@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_disol/disolPage.dart';
-import 'package:flutter_disol/infoItem.dart';
+import 'package:flutter_disol/disolPage/disolPage.dart';
+import 'package:flutter_disol/disolPage/infoPage/infoItem.dart';
 
 class InfoPage extends StatelessWidget {
   InfoPage({Key key}) : super(key: key);

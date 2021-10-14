@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_disol/disolPage.dart';
+import 'package:flutter_disol/home.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -71,7 +71,7 @@ class _SplashScreenState extends State<SplashScreen>
 
   void _navigateToAuthScreen(BuildContext context) {
     Timer(const Duration(seconds: 3),
-        () => Navigator.of(context).pushReplacement(Disol.route));
+        () => Navigator.of(context).pushReplacement(Home.route));
     print('object');
   }
 }
